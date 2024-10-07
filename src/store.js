@@ -52,12 +52,18 @@ export const actions = {
         //     variables: { email: email.email },
         // });
         // commit('setUser', response.data.users[0]);
-        axios.post('https://telixmart.com/api/shipping-cost', {
-            origin: data[0],
-            destination: data[1],
-            weight: data[2]
+        //'EViyrEHc2mflgfOUEINTBnWAIt24YBvaOIFWMdTtFzY1maj55fReGFDIxOma'
+        axios.get('http://telixmart.com/api/affiliate/check', {
+          params: {
+            api_token: email.email,
+          }
+        },{
+          headers: {
+            'Accept': 'application/json',
+            'Accept-Encoding': 'application/json'
+          }
         }).then(response => {
-            commit('setUser', response.data);
+            commit('setUser', response.data.user);
         });
     },
     async addBuyerData({ commit }, data) {

@@ -10,7 +10,7 @@
 
                         <p class="control">
                             <input
-                                type="email"
+                                type="text"
                                 class="input"
                                 v-model="email">
                         </p>
@@ -44,7 +44,7 @@ export default {
                  email: this.email
             }).then(response => {
                 // redirect user
-                this.$router.replace('/'+this.user.shop.subdomain)
+                this.$router.replace('/'+this.user.id)
             });
         }
     },
